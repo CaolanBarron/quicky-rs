@@ -4,6 +4,8 @@ pub mod twitter;
 pub mod github;
 pub mod reddit;
 pub mod youtube;
+pub mod amazon;
+pub mod pinterest;
 
 // This functions attempts to parse the command from the users input
 pub fn get_command_from_query_string(query_string: &str) -> &str {

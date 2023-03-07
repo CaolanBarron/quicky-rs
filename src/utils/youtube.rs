@@ -1,3 +1,8 @@
+use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
+
+const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"')
+    .add(b'<').add(b'>').add(b'`');
+
 
 pub fn construct_youtube_url(query: &str) -> String {
     if query == "yt" {
@@ -14,7 +19,7 @@ pub fn construct_youtube_url(query: &str) -> String {
 
 
 pub fn construct_youtube_search_url(query: &str) -> String {
-    let encoded_query = str::replace(query," ", "+");
+    let encoded_query = utf8_percent_encode(query, FRAGMENT).to_string();
     println!("{}",encoded_query);
     let youtube_search_url = format!("https://youtube.com/results?search_query={}",
         encoded_query);
@@ -47,7 +52,7 @@ mod tests {
         let fake_query = "yt hello world";
         assert_eq!(
             construct_youtube_url(fake_query),
-            "https://youtube.com/results?search_query=hello+world"
+            "https://youtube.com/results?search_query=hello%20world"
         );
     }
 
