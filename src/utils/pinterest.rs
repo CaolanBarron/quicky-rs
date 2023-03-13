@@ -39,7 +39,7 @@ mod tests {
         let fake_query = "pi hello world";
         assert_eq!(
             construct_pinterest_url(fake_query),
-            "https://pinterest.com/search/pins/c?q=hello%20world"
+            "https://pinterest.com/search/pins/?q=hello%20world"
         );
     }
 

@@ -28,6 +28,8 @@ fn search(cmd: String) -> Redirect {
         "tw" => utils::twitter::construct_twitter_url(&cmd),
         "am" => utils::amazon::construct_amazon_url(&cmd),
         "pi" => utils::pinterest::construct_pinterest_url(&cmd),
+        "dnd" => utils::dndbeyond::construct_dndbeyond_url(&cmd),
+        "pr" => utils::protonmail::construct_proton_url(&cmd),
         _ => utils::google::construct_google_search_url(&cmd)
     };
     Redirect::to(redirect_url)

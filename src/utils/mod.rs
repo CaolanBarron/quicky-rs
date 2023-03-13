@@ -1,11 +1,12 @@
-
-pub mod google;
-pub mod twitter;
-pub mod github;
-pub mod reddit;
-pub mod youtube;
 pub mod amazon;
+pub mod dndbeyond;
+pub mod github;
+pub mod google;
 pub mod pinterest;
+pub mod protonmail;
+pub mod reddit;
+pub mod twitter;
+pub mod youtube;
 
 // This functions attempts to parse the command from the users input
 pub fn get_command_from_query_string(query_string: &str) -> &str {
@@ -17,8 +18,6 @@ pub fn get_command_from_query_string(query_string: &str) -> &str {
     // or return the string as is
     &query_string
 }
-
-
 
 #[cfg(test)]
 mod tests {
