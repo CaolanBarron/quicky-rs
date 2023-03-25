@@ -1,8 +1,7 @@
 extern crate percent_encoding;
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
 
-const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"')
-    .add(b'<').add(b'>').add(b'`');
+const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"').add(b'<').add(b'>').add(b'`');
 
 pub fn construct_pinterest_url(query: &str) -> String {
     if query == "pi" {
@@ -13,25 +12,21 @@ pub fn construct_pinterest_url(query: &str) -> String {
     }
 }
 
-
-
 pub fn construct_pinterest_search_url(query: &str) -> String {
     let encoded_query = utf8_percent_encode(query, FRAGMENT).to_string();
-    let pinterest_search_url = format!("https://pinterest.com/search/pins/?q={}",
-        encoded_query);
-    
+    let pinterest_search_url = format!("https://pinterest.com/search/pins/?q={}", encoded_query);
+
     pinterest_search_url
 }
 
-#[cfg(test)] 
+#[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test_construct_pinterest_url() {
         let fake_query = "pi";
-        assert_eq!(construct_pinterest_url(fake_query),
-        "https://pinterest.com");
+        assert_eq!(construct_pinterest_url(fake_query), "https://pinterest.com");
     }
 
     #[test]
@@ -42,5 +37,4 @@ mod tests {
             "https://pinterest.com/search/pins/?q=hello%20world"
         );
     }
-
 }

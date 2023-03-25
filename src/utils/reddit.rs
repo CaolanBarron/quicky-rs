@@ -1,24 +1,19 @@
 extern crate percent_encoding;
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
 
-const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"').add(b'<')
-    .add(b'>').add(b'`');
+const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"').add(b'<').add(b'>').add(b'`');
 
-pub fn construct_reddit_url(query: &str) ->String {
-
+pub fn construct_reddit_url(query: &str) -> String {
     if query == "r" {
         //base url
         "https://reddit.com".to_string()
-    }
-    else if &query[..3] == "r /"{
+    } else if &query[..3] == "r /" {
         // sub url
         construct_reddit_sub_url(&query[3..])
-    }
-    else if &query[..3] == "r @" {
+    } else if &query[..3] == "r @" {
         // profile url
         construct_reddit_profile_url(&query[3..])
-    }
-    else {
+    } else {
         // search url
         construct_reddit_search_url(&query[2..])
     }
@@ -30,18 +25,16 @@ fn construct_reddit_sub_url(sub: &str) -> String {
 }
 
 // Construct reddit search url
-fn construct_reddit_search_url(query: &str) -> String{
+fn construct_reddit_search_url(query: &str) -> String {
     let encoded_query = utf8_percent_encode(query, FRAGMENT).to_string();
-    
-    let reddit_search_url = format!("https://reddit.com/search/?q={}",
-        encoded_query);
-    
-    reddit_search_url
 
+    let reddit_search_url = format!("https://reddit.com/search/?q={}", encoded_query);
+
+    reddit_search_url
 }
 
 // Construct reddit profile url
-fn construct_reddit_profile_url(profile: &str) -> String{
+fn construct_reddit_profile_url(profile: &str) -> String {
     format!("https://reddit.com/user/{}", profile)
 }
 
@@ -53,10 +46,7 @@ mod tests {
     #[test]
     fn test_construct_reddit_url() {
         let fake_query = "r";
-        assert_eq!(
-            construct_reddit_url(fake_query),
-            "https://reddit.com"
-        );
+        assert_eq!(construct_reddit_url(fake_query), "https://reddit.com");
     }
 
     // sub url test
@@ -91,6 +81,4 @@ mod tests {
             "https://reddit.com/user/LeftTales"
         )
     }
-
-
 }

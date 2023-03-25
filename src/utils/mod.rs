@@ -1,5 +1,4 @@
 pub mod amazon;
-pub mod dndbeyond;
 pub mod github;
 pub mod google;
 pub mod pinterest;
@@ -7,6 +6,8 @@ pub mod protonmail;
 pub mod reddit;
 pub mod twitter;
 pub mod youtube;
+pub mod linkedin;
+pub mod stackoverflow;
 
 // This functions attempts to parse the command from the users input
 pub fn get_command_from_query_string(query_string: &str) -> &str {
