@@ -14,7 +14,10 @@ pub fn construct_proton_url(query: &str) -> String {
 
 pub fn construct_proton_search_url(query: &str) -> String {
     let encoded_query = utf8_percent_encode(query, FRAGMENT).to_string();
-    let proton_search_url = format!("https://mail.proton.me/u/0/all-mail#keyword={}", encoded_query);
+    let proton_search_url = format!(
+        "https://mail.proton.me/u/0/all-mail#keyword={}",
+        encoded_query
+    );
 
     proton_search_url
 }

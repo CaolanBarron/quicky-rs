@@ -4,7 +4,7 @@
 extern crate rocket;
 
 use rocket::response::Redirect;
-use rocket_contrib::{templates::Template, serve::StaticFiles};
+use rocket_contrib::{serve::StaticFiles, templates::Template};
 
 mod utils;
 
