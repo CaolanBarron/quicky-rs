@@ -8,6 +8,7 @@ use rocket_contrib::{serve::StaticFiles, templates::Template};
 
 mod utils;
 
+
 //This attribute generates a route using the following function
 // This is later called when applicable by the application
 #[get("/")]
@@ -44,4 +45,16 @@ fn main() {
         .mount("/", routes![index, search])
         .attach(Template::fairing())
         .launch();
+}
+
+#[cfg(test)]
+mod tests{
+    use super::*;
+
+    #[test]
+    fn test_search_query() {
+        let query = "test & best".to_string();
+
+        search(query);
+    }
 }

@@ -1,6 +1,6 @@
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
 
-const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"').add(b'<').add(b'>').add(b'`');
+const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"').add(b'<').add(b'>').add(b'`').add(b'&');
 
 pub fn construct_youtube_url(query: &str) -> String {
     if query == "yt" {

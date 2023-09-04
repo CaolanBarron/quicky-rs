@@ -9,6 +9,9 @@ pub mod stackoverflow;
 pub mod twitter;
 pub mod youtube;
 
+
+const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"').add(b'<').add(b'>').add(b'`').add(b'&');
+
 // This functions attempts to parse the command from the users input
 pub fn get_command_from_query_string(query_string: &str) -> &str {
     if query_string.contains(' ') {
@@ -36,6 +39,13 @@ mod tests {
     fn test_get_command_from_query_string_with_whitespace() {
         let actual = get_command_from_query_string("tw @fbOpenSource");
         let expected = "tw";
+        assert_eq!(actual, expected);
+    }
+
+    #[test]
+    fn test_get_command_from_query_string_with_special_characters() {
+        let actual = get_command_from_query_string("test & test");
+        let expected = "test & test";
         assert_eq!(actual, expected);
     }
 }
