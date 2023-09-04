@@ -10,7 +10,6 @@ pub mod twitter;
 pub mod youtube;
 
 
-const FRAGMENT: &AsciiSet = &CONTROLS.add(b' ').add(b'"').add(b'<').add(b'>').add(b'`').add(b'&');
 
 // This functions attempts to parse the command from the users input
 pub fn get_command_from_query_string(query_string: &str) -> &str {
