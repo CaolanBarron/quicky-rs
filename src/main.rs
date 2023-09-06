@@ -31,6 +31,7 @@ fn search(cmd: String) -> Redirect {
         "pi" => utils::pinterest::construct_pinterest_url(&cmd),
         "pr" => utils::protonmail::construct_proton_url(&cmd),
         "sof" => utils::stackoverflow::construct_stackoverflow_url(&cmd),
+        "poro" => utils::porofessor::construct_porofessor_url(&cmd),
         _ => utils::google::construct_google_search_url(&cmd),
     };
     Redirect::to(redirect_url)

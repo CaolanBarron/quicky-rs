@@ -8,6 +8,8 @@ pub mod reddit;
 pub mod stackoverflow;
 pub mod twitter;
 pub mod youtube;
+pub mod porofessor;
+pub mod mobafire;
 
 
 
