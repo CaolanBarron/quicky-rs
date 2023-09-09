@@ -19,7 +19,6 @@ fn index() -> Template {
 // same as before but accepts an optional paremeter
 #[get("/search?<cmd>")]
 fn search(cmd: String) -> Redirect {
-    println!("You typed in: {}", cmd);
 
     let command = utils::get_command_from_query_string(&cmd);
     let redirect_url = match command {

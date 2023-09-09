@@ -15,7 +15,6 @@ pub fn construct_youtube_url(query: &str) -> String {
 
 pub fn construct_youtube_search_url(query: &str) -> String {
     let encoded_query = utf8_percent_encode(query, FRAGMENT).to_string();
-    println!("{}", encoded_query);
     let youtube_search_url = format!("https://youtube.com/results?search_query={}", encoded_query);
 
     youtube_search_url
