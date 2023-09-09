@@ -12,7 +12,7 @@ pub fn construct_mobafire_url(query: &str) -> String {
 }
 
 fn construct_mobafire_champion_url(champion: &str) -> String {
-    format!("https://www.mobafire.com/league-of-legends/champions/{}", champion)
+    format!("https://www.mobafire.com/league-of-legends/champion/{}", champion)
 }
 
 #[cfg(test)]
