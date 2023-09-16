@@ -50,6 +50,11 @@ let quicky_options = [
         command: "s ",
         arguments: [" generic search"]
     },
+    {
+      display: `<span class="highlighted-color">h</span>ow<span class="highlighted-color">l</span>ong<span class="highlighted-color">t</span>o<span class="highlighted-color">b</span>eat`,
+      command: "hltb ",
+      arguments: [" generic search"]
+    },
    
 ]
 

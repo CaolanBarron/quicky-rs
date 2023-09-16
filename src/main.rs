@@ -32,6 +32,7 @@ fn search(cmd: String) -> Redirect {
         "sof" => utils::stackoverflow::construct_stackoverflow_url(&cmd),
         "mf" => utils::mobafire::construct_mobafire_url(&cmd),
         "poro" => utils::porofessor::construct_porofessor_url(&cmd),
+        "hltb" => utils::howlongtobeat::construct_howlongtobeat_url(&cmd),
         _ => utils::google::construct_google_search_url(&cmd),
     };
     Redirect::to(redirect_url)

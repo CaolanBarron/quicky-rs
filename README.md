@@ -38,6 +38,8 @@ Quicky is an application which redirects you to websites upon supplying specific
     - Youtube
         - Generic search
         - User search
+    - HowLongToBeat
+      - Generic search
 - All of the above options will default to the home URL when no argument is passed
 - Quicky comes with a home page which can be searched from
 

@@ -10,7 +10,7 @@ pub mod twitter;
 pub mod youtube;
 pub mod porofessor;
 pub mod mobafire;
-
+pub mod howlongtobeat;
 
 
 // This functions attempts to parse the command from the users input
