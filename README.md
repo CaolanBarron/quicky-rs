@@ -57,5 +57,5 @@ Would take you to the Twitter(currently known as X) page of the requested user.
 We welcome contributions from the open-source community to help improve MMFAD.
 
 ## License
-MMFAD is open-source software released under the MIT License. Feel free to use, modify, and distribute it according to the terms of this license.
+Quicky is open-source software released under the MIT License. Feel free to use, modify, and distribute it according to the terms of this license.
 
